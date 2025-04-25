@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='schedule.css') }}" />
+</head>
+<body>
+  <h1 class="title">STUDENT PROFILE</h1>
+
+  <div class="profile-wrapper">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <div class="image-section">
+        {% if enrollment['image_filename'] %}
+          <img src="{{ url_for('static', filename='uploads/' + enrollment['image_filename']) }}" alt="Student Profile Image" class="profile-image">
+          {% endif %}
+          <h2 class="student-name">{{ enrollment['fullname'] }}</h2>
+          {{ enrollment['student_id'] }}
+      </div>
+
+      <div class="text-section">
+        <p><strong>LRN Number:</strong> {{ enrollment['lrn'] }}</p>
+        <p><strong>Phone Number:</strong> {{ enrollment['phone'] }}</p>
+        <p><strong>Year Level:</strong> {{ enrollment['year'] }}</p>
+        <p><strong>Course:</strong> {{ enrollment['course'] }}</p>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="info-wrapper">
+        <p class="section-title">📋 GENERAL INFORMATION</p>
+        <div class="text-section">
+          <p><strong>Email:</strong> {{ enrollment['email'] }}</p>
+          <p><strong>Birthdate:</strong> {{ enrollment['birthdate'] }}</p>
+          <p><strong>BirthPlace:</strong> {{ enrollment['placeofbirth'] }}</p>
+          <p><strong>Age:</strong> {{ enrollment['age'] }}</p>
+          <p><strong>Enrollment Type:</strong> {{ enrollment['enroll_type'] }}</p>
+        </div>
+    
+        <p class="section-header">👨‍👩‍👧‍👦 PARENTS INFORMATION</p>
+        <div class="text-section">
+          <p><strong>Mother's Name:</strong> {{ enrollment['mothername'] }}</p>
+          <p><strong>Mother's Occupation:</strong> {{ enrollment['motheroccupation'] }}</p>
+          <p><strong>Father's Name:</strong> {{ enrollment['fathername'] }}</p>
+          <p><strong>Father's Occupation:</strong> {{ enrollment['fatheroccupation'] }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <a href="{{ url_for('enrolled') }}" class="back-button">Back to Dashboard</a>
+  <div class="schedule-section">
+    <h2 class="schedule-title">CLASS SCHEDULE</h2>
+    <div class="schedule-table-wrapper">
+      <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Subject</th>
+          <th>Instructor</th>
+          <th>Room</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for day, subjects in schedule.items() %}
+          {% if subjects and subjects[0][0] != "No Class" %}
+            {% for subject in subjects %}
+            <tr>
+              {% if loop.index0 == 0 %}
+              <td rowspan="{{ subjects|length }}"><strong>{{ day }}</strong></td>
+              {% endif %}
+              <td>{{ subject[0] }}</td>
+              <td>{{ subject[1] }}</td>
+              <td>{{ subject[2] }}</td>
+              <td>{{ subject[3] }}</td>
+            </tr>
+            {% endfor %}
+          {% else %}
+          <tr>
+            <td><strong>{{ day }}</strong></td>
+          </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</body>
+</html>

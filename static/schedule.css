@@ -1,0 +1,169 @@
+/* schedule.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #000000, #2e1fae);
+  color: #000;
+}
+
+
+
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.left-panel, .right-panel {
+  background-color: white;
+  padding: 20px;
+  width: 100%;
+  max-width: 370px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+
+.image-section {
+  text-align: center;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #392ee6;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.student-name {
+  margin: 10px 0 0 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+.text-section p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #000;
+  word-wrap: break-word;
+}
+
+.section-title, .section-header {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.schedule-section {
+  background-color: white;
+  margin: 30px auto;
+  padding: 20px;
+  width: 95%;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.schedule-table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.schedule-table {
+  min-width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+
+.schedule-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+}
+
+.schedule-table thead {
+  background-color: #392ee6;
+  color: white;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.schedule-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .profile-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-panel, .right-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .schedule-section {
+    padding: 10px;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+.back-button {
+  text-decoration: none;
+  color: #001b7a;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: inline-block;
+  font-weight: bold;
+  position: relative; 
+  width: 150px; 
+  height: 40px; 
+  line-height: 40px; 
+  text-align: center; /
+}
+
+.back-button:hover {
+  background-color: #001b7a;
+  color: white;
+}
+
+.title {
+  color: white;
+  font-weight: 800;
+  font-size: 2.5rem;
+  text-align: center;
+}
